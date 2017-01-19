@@ -11,7 +11,7 @@
                     <div class="panel-body">
                         <div class="row">
                             <div class="col-md-6 col-md-offset-3">
-                                {!! Form::open() !!}
+                                {!! Form::open(['route' => 'create-area']) !!}                                    
                                     <div class="form-group">                                        
                                         {!! Form::label('name', "Nombre") !!}
                                         {!! Form::text('name', null, ['class' => 'form-control']) !!}

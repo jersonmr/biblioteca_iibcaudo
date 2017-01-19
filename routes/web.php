@@ -23,6 +23,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     // Items Route
     Route::get('listado-areas', ['uses' => 'AreaController@getList', 'as' => 'areas']);
     Route::get('registrar-area', ['uses' => 'AreaController@createArea', 'as' => 'create-area']);
+    Route::post('registrar-area', ['uses' => 'AreaController@storeArea', 'as' => 'create-area']);
 });
 
 Auth::routes();

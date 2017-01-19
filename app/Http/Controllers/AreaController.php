@@ -18,4 +18,13 @@ class AreaController extends Controller
     {
         return view('admin.areas.create');
     }
+
+    public function storeArea()
+    {
+    	$data = request()->all();
+    	
+    	Area::create($data);
+
+    	return redirect()->route('areas');
+    }
 }

@@ -27,11 +27,11 @@
                                     <td>{{ $area->description }}</td>
                                     <td>
                                         <a href="#">
-                                            <i class="fa fa-edit"></i>
+                                            <i class="fa fa-edit fa-2x"></i>
                                         </a>
                                         |
                                         <a href="#">
-                                            <i class="fa fa-trash"></i>
+                                            <i class="fa fa-trash fa-2x"></i>
                                         </a>
                                     </td>
                                 </tr>
