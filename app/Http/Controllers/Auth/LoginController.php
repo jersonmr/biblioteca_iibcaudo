@@ -25,7 +25,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    //protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -43,7 +43,17 @@ class LoginController extends Controller
      * @return string
      */
     public function redirectPath()
-    {           
+    {                  
+        switch (\Auth::user()->role) {
+            case 'admin':
+                return route('dashboard');
+                break;
+            
+            default:
+                # code...
+                break;
+        }
         return route('home');
     }
+
 }

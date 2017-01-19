@@ -17,10 +17,10 @@
 
 Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home']);
 
-// Autenticacion
-/*Route::post('inicio-sesion', ['uses' => 'Auth\LoginController@login', 'as' => 'login']);
-Route::get('cerrar-sesion', ['uses' => 'Auth\LoginController@logout', 'as' => 'logout']);*/
+// Admin Routes
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
+    Route::get('panel-administrador', ['uses' => 'AdminController@getDashboard', 'as' => 'dashboard']);
+});
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index');
