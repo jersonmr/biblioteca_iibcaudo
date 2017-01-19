@@ -18,5 +18,9 @@
 Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home']);
 
 // Autenticacion
-Route::post('inicio-sesion', ['uses' => 'Auth\LoginController@login', 'as' => 'login']);
-Route::get('cerrar-sesion', ['uses' => 'Auth\LoginController@logout', 'as' => 'logout']);
+/*Route::post('inicio-sesion', ['uses' => 'Auth\LoginController@login', 'as' => 'login']);
+Route::get('cerrar-sesion', ['uses' => 'Auth\LoginController@logout', 'as' => 'logout']);*/
+
+Auth::routes();
+
+//Route::get('/home', 'HomeController@index');
