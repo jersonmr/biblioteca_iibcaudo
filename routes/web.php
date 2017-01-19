@@ -20,6 +20,9 @@ Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home']);
 // Admin Routes
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('panel-administrador', ['uses' => 'AdminController@getDashboard', 'as' => 'dashboard']);
+    // Items Route
+    Route::get('listado-areas', ['uses' => 'AreaController@getList', 'as' => 'areas']);
+    Route::get('registrar-area', ['uses' => 'AreaController@createArea', 'as' => 'create-area']);
 });
 
 Auth::routes();
