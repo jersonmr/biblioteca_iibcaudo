@@ -12,6 +12,8 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}">
 
     <!-- Scripts -->
     <script>
@@ -54,15 +56,19 @@
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    <i class="fa fa-user-circle fa-2x"></i> {{ Auth::user()->full_name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{ route('dashboard') }}"><i class="fa fa-cog"></i> Ir a mi panel</a></li>
+                                    <li><a href="#"><i class="fa fa-flask"></i> Sección de investigadores</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#"><i class="fa fa-lock"></i> Cambiar contraseña</a></li>
                                     <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            <i class="fa fa-sign-out"></i> Cerrar sesión
                                         </a>
 
                                         <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
