@@ -18,11 +18,11 @@
 						</li>
 						<li class="text-center">
 							<i class="fa fa-folder-o fa-5x"></i> <br> 
-							<a href="#">Subareas</a>
+							<a href="{{ route('subareas') }}">Subareas</a>
 						</li>
 						<li class="text-center">
 							<i class="fa fa-file-pdf-o fa-5x"></i> <br> 
-							<a href="#">Items</a>
+							<a href="{{ route('items') }}">Items</a>
 						</li>
 					</ul>               
                 </div>

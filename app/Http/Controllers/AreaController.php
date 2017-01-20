@@ -7,7 +7,7 @@ use App\Area;
 
 class AreaController extends Controller
 {
-    public function getList()
+    public function getAreas()
     {
         $areas = Area::all();
 
@@ -44,15 +44,28 @@ class AreaController extends Controller
     	return view('admin.areas.update', compact('area'));
     }
 
+    /**
+     * Actualiza el registro en BD correspondiente a la data traido desde el form de edicion
+     * @param  int $area_id clave primaria de la tabla areas
+     * @return view
+     */
     public function updateArea($area_id)
     {
-    	$data = request()->all();
-    	dd($data); exit;
-
     	$area = Area::findOrFail($area_id);
+    	
+    	$data = request()->all();    	
 
-    	$area->fill($data);
+    	$area->fill($data)->save();
 
     	return redirect()->route('areas');
+    }
+
+    public function deleteArea($area_id)
+    {
+    	$area = Area::findOrFail($area_id);
+
+    	$area->delete();
+
+    	return redirect()->back();
     }
 }
