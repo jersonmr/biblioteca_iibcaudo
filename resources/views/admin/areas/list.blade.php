@@ -26,7 +26,7 @@
                                     <td>{{ $area->name }}</td>
                                     <td>{{ $area->description }}</td>
                                     <td>
-                                        <a href="#">
+                                        <a href="{{ route('edit-area', $area->area_id) }}">
                                             <i class="fa fa-edit fa-2x"></i>
                                         </a>
                                         |
