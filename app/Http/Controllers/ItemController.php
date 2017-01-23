@@ -15,4 +15,10 @@ class ItemController extends Controller
 
         return view('admin.items.list', compact('items'));
     }
+
+    public function createItem()
+    {
+    	$areas = Area::orderBy('name')->pluck('name', 'area_id');
+    	return view('admin.items.create', compact('areas'));
+    }
 }

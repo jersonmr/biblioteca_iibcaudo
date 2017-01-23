@@ -38,7 +38,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
     // Items Routes
     Route::get('listado-items', ['uses' => 'itemController@getItems', 'as' => 'items']);
-    Route::get('registrar-item', ['uses' => 'itemController@createSubarea', 'as' => 'create-item']);
+    Route::get('registrar-item', ['uses' => 'itemController@createItem', 'as' => 'create-item']);
 
     Route::get('actualizar-item/{id}', ['uses' => 'itemController@editSubarea', 'as' => 'edit-item']);
     Route::get('eliminar-item/{id}', ['uses' => 'itemController@deleteSubarea', 'as' => 'delete-item']);   

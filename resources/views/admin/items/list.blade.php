@@ -22,11 +22,11 @@
                             @foreach($items as $item)
                                 <tr>
                                     <td>{{ $item->item_id }}</td>
-                                    <td>
+                                    <td width="90%">
                                         {{ $item->title }} <br>
-                                        <small>{{ $item->author }}</small>
+                                        <small><strong>{{ $item->author }}</strong></small>
                                     </td>                                    
-                                    <td>
+                                    <td width="10%">
                                         <a href="{{ route('edit-item', $item->item_id) }}">
                                             <i class="fa fa-edit fa-2x"></i>
                                         </a>
