@@ -28,7 +28,7 @@
                                     </div>
 
                                     <div class="form-group">
-
+                                        {!! Form::submit('Registrar area', ['class' => 'btn btn-success']) !!}
                                     </div>
                                 {!! Form::close() !!}
                             </div>
