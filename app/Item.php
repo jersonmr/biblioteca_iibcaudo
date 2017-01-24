@@ -10,6 +10,6 @@ class Item extends Model
     protected $primaryKey = 'item_id';
 
     protected $fillable = [
-        'treatment', 'dni', 'name', 'last_name', 'email', 'password', 'role',
+        'author', 'abstract', 'keywords', 'editorial', 'collection', 'isbn', 'issn', 'pages', 'volume', 'pub_year', 'filename', 'user_id', 'area_id', 'subarea_id'
     ];
 }

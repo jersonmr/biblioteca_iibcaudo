@@ -15,6 +15,7 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->increments('item_id');
+            $table->string('title', 255);
             $table->string('author', 255);
             $table->mediumText('abstract');
             $table->string('keywords', 255);

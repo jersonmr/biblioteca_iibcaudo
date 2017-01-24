@@ -6,31 +6,32 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        Listado de áreas
-                        <a href="{{ route('create-area') }}" class="btn btn-success"> <i class="fa fa-plus-square"></i> Registrar Área </a>
+                        Listado de items
+                        <a href="{{ route('create-item') }}" class="btn btn-success"> <i class="fa fa-plus-square"></i> Registrar Item </a>
                     </div>
                     <div class="panel-body">
                         <table class="table table-hover">
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Nombre</th>
-                                <th>Descripción</th>
+                                <th>Título/Autor</th>                                
                                 <th>Acciones</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($areas as $area)
+                            @foreach($items as $item)
                                 <tr>
-                                    <td>{{ $area->area_id }}</td>
-                                    <td>{{ $area->name }}</td>
-                                    <td>{{ $area->description }}</td>
-                                    <td>
-                                        <a href="{{ route('edit-area', $area->area_id) }}">
+                                    <td>{{ $item->item_id }}</td>
+                                    <td width="90%">
+                                        {{ $item->title }} <br>
+                                        <small><strong>{{ $item->author }}</strong></small>
+                                    </td>                                    
+                                    <td width="10%">
+                                        <a href="{{ route('edit-item', $item->item_id) }}">
                                             <i class="fa fa-edit fa-2x"></i>
                                         </a>
                                         |
-                                        <a href="{{ route('delete-area', $area->area_id) }}">
+                                        <a href="{{ route('delete-item', $item->area_id) }}">
                                             <i class="fa fa-trash fa-2x"></i>
                                         </a>
                                     </td>
