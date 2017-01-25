@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Item;
 use App\Area;
+use App\Http\Requests\ItemRequest;
+use App\Item;
 use App\Subarea;
+use Illuminate\Http\Request;
 
 class ItemController extends Controller
 {
@@ -38,5 +39,10 @@ class ItemController extends Controller
         array_unshift($subareas, ['subarea_id' => '', 'name' => 'Seleccione subarea']);
 
         return $subareas;
+    }
+
+    public function storeItem(ItemRequest $request)
+    {
+        
     }
 }

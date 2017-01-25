@@ -9,12 +9,12 @@
                         Registro de item
                     </div>
                     <div class="panel-body">                        
-                        {!! Form::open(['route' => 'create-item', 'files' => true, 'class' => 'form']) !!}
+                        {!! Form::open(['route' => 'create-item', 'files' => true, 'class' => 'form', 'novalidate']) !!}
 
                         	<div class="row">                        	
                         		<div class="form-group{{ $errors->has('area_id') ? ' has-error' : '' }} col-xs-12 col-sm-6 col-md-6">
                         			{!! Form::label('area_id', "Areas") !!}
-                                    {!! Form::select('area_id', $areas, null, ['class' => 'form-control', 'placeholder' => 'Seleccione área']) !!}
+                                    {!! Form::select('area_id', $areas, null, ['class' => 'form-control', 'placeholder' => 'Seleccione área', 'required' => 'required']) !!}
                                     @if ($errors->has('area_id'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('area_id') }}</strong>
@@ -23,7 +23,7 @@
                         		</div>
                         		<div class="form-group{{ $errors->has('subarea_id') ? ' has-error' : '' }} col-xs-12 col-sm-6 col-md-6">
                         			{!! Form::label('subarea_id', "Subareas") !!}
-                                    {!! Form::select('subarea_id', [], null, ['class' => 'form-control', 'placeholder' => 'Seleccione subarea']) !!}
+                                    {!! Form::select('subarea_id', [], null, ['class' => 'form-control', 'placeholder' => 'Seleccione subarea', 'required' => 'required']) !!}
                                     @if ($errors->has('subarea_id'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('subarea_id') }}</strong>
@@ -34,7 +34,7 @@
 
                         	<div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
                         		{!! Form::label('title', 'Título') !!}
-                        		{!! Form::text('title', null, ['class' => 'form-control', 'autofocus']) !!}
+                        		{!! Form::text('title', null, ['class' => 'form-control', 'autofocus', 'required' => 'required']) !!}
                                 @if ($errors->has('title'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('title') }}</strong>
@@ -44,7 +44,7 @@
 
                             <div class="form-group{{ $errors->has('author') ? ' has-error' : '' }}">
                                 {!! Form::label('author', 'Autor') !!}
-                                {!! Form::text('author', null, ['class' => 'form-control']) !!}
+                                {!! Form::text('author', null, ['class' => 'form-control', 'required' => 'required']) !!}
                                 @if ($errors->has('author'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('author') }}</strong>
@@ -54,7 +54,7 @@
 
                             <div class="form-group{{ $errors->has('abstract') ? ' has-error' : '' }}">
                                 {!! Form::label('abstract', 'Resumen') !!}
-                                {!! Form::textarea('abstract', null, ['class' => 'form-control', 'rows' => '7']) !!}
+                                {!! Form::textarea('abstract', null, ['class' => 'form-control', 'rows' => '7', 'required' => 'required']) !!}
                                 @if ($errors->has('abstract'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('abstract') }}</strong>
@@ -64,7 +64,7 @@
 
                             <div class="form-group{{ $errors->has('keywords') ? ' has-error' : '' }}">
                                 {!! Form::label('keywords', 'Palabras clave') !!}
-                                {!! Form::text('keywords', null, ['class' => 'form-control']) !!}
+                                {!! Form::text('keywords', null, ['class' => 'form-control', 'required' => 'required']) !!}
                                 @if ($errors->has('keywords'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('keywords') }}</strong>
@@ -75,7 +75,7 @@
                             <div class="row">
                                 <div class="col-xs-12 col-sm-4 col-md-4 form-group{{ $errors->has('pub_year') ? ' has-error' : '' }}">
                                     {!! Form::label('pub_year', 'Año de publicación') !!}
-                                    {!! Form::text('pub_year', null, ['class' => 'form-control', 'placeholder' => 'aaaa']) !!}
+                                    {!! Form::text('pub_year', null, ['class' => 'form-control', 'placeholder' => 'aaaa', 'required' => 'required']) !!}
                                     @if ($errors->has('pub_year'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('pub_year') }}</strong>
@@ -94,7 +94,7 @@
                                         'revistas'    => 'Revista',
                                         'monografias' => 'Monografía',
                                         'tesis'       => 'Tesis'
-                                    ], null, ['class' => 'form-control']) !!}
+                                    ], null, ['class' => 'form-control', 'required' => 'required']) !!}
                                     @if ($errors->has('collection'))
                                         <span class="help-block">
                                             <strong>{{ $errors->first('collection') }}</strong>
@@ -106,7 +106,7 @@
                             {{-- ARCHIVO PDF --}}
                             <div class="form-group{{ $errors->has('filename') ? ' has-error' : '' }}">
                                 {!! Form::label('filename', 'Archivo PDF') !!}
-                                {!! Form::file('filename', ['class' => 'form-control filestyle', 'data-buttonText' => 'Seleccione archivo', 'data-iconName' => 'fa fa-folder']) !!}
+                                {!! Form::file('filename', ['class' => 'form-control filestyle', 'data-buttonText' => 'Seleccione archivo', 'data-iconName' => 'fa fa-folder', 'required' => 'required']) !!}
                                 @if ($errors->has('filename'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('filename') }}</strong>
