@@ -148,4 +148,27 @@
 
 @section('scripts')
 <script type="text/javascript" src="{{ asset('js/bootstrap-filestyle.js') }}"> </script>
+<script>
+    $(document).ready(function(){
+        $.fn.populateSelect = function(values) {            
+            var options = '';
+            $.each(values, function(key, row) {
+                options += '<option value="' + row.subarea_id + '">' + row.name + '</option>';
+            });
+            $(this).html(options);
+        }
+
+        $('#area_id').change(function() {
+            $('#subarea_id').empty();
+
+            var area_id = $(this).val();
+            
+            if(area_id != '') {
+                $.getJSON('/admin/listado-subareas-ajax/'+area_id, null, function(values) {
+                    $('#subarea_id').populateSelect(values);
+                });
+            }
+        });
+    });
+</script>
 @endsection

@@ -29,19 +29,21 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('eliminar-area/{id}', ['uses' => 'AreaController@deleteArea', 'as' => 'delete-area']);
 
     // Subarea Routes
-    Route::get('listado-subareas', ['uses' => 'subareaController@getSubareas', 'as' => 'subareas']);
-    Route::get('registrar-subarea', ['uses' => 'subareaController@createSubarea', 'as' => 'create-subarea']);
-    Route::post('registrar-subarea', ['uses' => 'subareaController@storeSubarea', 'as' => 'create-subarea']);
-    Route::get('actualizar-subarea/{id}', ['uses' => 'subareaController@editSubarea', 'as' => 'edit-subarea']);   
-    Route::post('actualizar-subarea/{id}', ['uses' => 'subareaController@updateSubarea', 'as' => 'update-subarea']);        
-    Route::get('eliminar-subarea/{id}', ['uses' => 'subareaController@deleteSubarea', 'as' => 'delete-subarea']);
+    Route::get('listado-subareas', ['uses' => 'SubareaController@getSubareas', 'as' => 'subareas']);
+    Route::get('registrar-subarea', ['uses' => 'SubareaController@createSubarea', 'as' => 'create-subarea']);
+    Route::post('registrar-subarea', ['uses' => 'SubareaController@storeSubarea', 'as' => 'create-subarea']);
+    Route::get('actualizar-subarea/{id}', ['uses' => 'SubareaController@editSubarea', 'as' => 'edit-subarea']);   
+    Route::post('actualizar-subarea/{id}', ['uses' => 'SubareaController@updateSubarea', 'as' => 'update-subarea']);        
+    Route::get('eliminar-subarea/{id}', ['uses' => 'SubareaController@deleteSubarea', 'as' => 'delete-subarea']);
 
     // Items Routes
-    Route::get('listado-items', ['uses' => 'itemController@getItems', 'as' => 'items']);
-    Route::get('registrar-item', ['uses' => 'itemController@createItem', 'as' => 'create-item']);
+    Route::get('listado-items', ['uses' => 'ItemController@getItems', 'as' => 'items']);
+    Route::get('registrar-item', ['uses' => 'ItemController@createItem', 'as' => 'create-item']);
 
-    Route::get('actualizar-item/{id}', ['uses' => 'itemController@editSubarea', 'as' => 'edit-item']);
-    Route::get('eliminar-item/{id}', ['uses' => 'itemController@deleteSubarea', 'as' => 'delete-item']);   
+    Route::get('actualizar-item/{id}', ['uses' => 'ItemController@editSubarea', 'as' => 'edit-item']);
+    Route::get('eliminar-item/{id}', ['uses' => 'ItemController@deleteSubarea', 'as' => 'delete-item']);   
+    // Combobox Areas/Subareas by Ajax Routes
+    Route::get('listado-subareas-ajax/{area_id}', 'ItemController@getSubareasByAjax');
 });
 
 Auth::routes();
