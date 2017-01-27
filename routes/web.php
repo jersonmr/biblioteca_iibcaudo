@@ -45,6 +45,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('eliminar-item/{id}', ['uses' => 'ItemController@deleteSubarea', 'as' => 'delete-item']);   
     // Combobox Areas/Subareas by Ajax Routes
     Route::get('listado-subareas-ajax/{area_id}', 'ItemController@getSubareasByAjax');
+    // File's Get Routes
+    Route::get('item-file/{item_id}', 'ItemController@getFile');
 });
 
 Auth::routes();

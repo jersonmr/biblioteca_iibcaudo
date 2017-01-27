@@ -25,14 +25,14 @@ class ItemRequest extends FormRequest
     {        
         return [
             'title'      => 'required|unique:items,title', 
-            'author'     => 'required', 
-            'abstract'   => 'required', 
-            'keywords'   => 'required',             
-            'collection' => 'required|in:libros,monografias,revistas,tesis',             
-            'pub_year'   => 'required|digits:4', 
-            'filename'   => 'required|file|mimes:pdf', 
-            'user_id'    => 'required', 
-            'area_id'    => 'required', 
+            'author'     => 'required',
+            'abstract'   => 'required',
+            'keywords'   => 'required',
+            'collection' => 'required|in:libros,monografias,revistas,tesis',
+            'pub_year'   => 'required|digits:4',
+            'filename'   => 'required|file|mimes:pdf',
+            //'user_id'    => 'required',
+            'area_id'    => 'required',
             'subarea_id' => 'required'
         ];
     }

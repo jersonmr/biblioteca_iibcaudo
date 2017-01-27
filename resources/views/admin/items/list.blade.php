@@ -16,6 +16,7 @@
                                 <th>#</th>
                                 <th>Título/Autor</th>                                
                                 <th>Acciones</th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -35,6 +36,7 @@
                                             <i class="fa fa-trash fa-2x"></i>
                                         </a>
                                     </td>
+                                    <td><a href="{{ url('item-file', $item->filename) }}">{{ $item->filename }}</a></td>
                                 </tr>
                             @endforeach
                             </tbody>

@@ -91,8 +91,8 @@
                                     {!! Form::select('collection', [
                                         '' => 'Seleccione una opción',
                                         'libros'      => 'Libro',
-                                        'revistas'    => 'Revista',
                                         'monografias' => 'Monografía',
+                                        'revistas'    => 'Revista',
                                         'tesis'       => 'Tesis'
                                     ], null, ['class' => 'form-control', 'required' => 'required']) !!}
                                     @if ($errors->has('collection'))
@@ -132,6 +132,9 @@
                                     {!! Form::text('volume', null, ['class' => 'form-control']) !!}
                                 </div>
                             </div>
+
+                            {{-- ID del usuario logueado --}}
+                            {!! Form::hidden('user_id', Auth::user()->user_id) !!}
 
                             <div class="form-group" style="margin-top: 20px;">
                                 <input type="submit" value="Registrar item" class="btn btn-success">
