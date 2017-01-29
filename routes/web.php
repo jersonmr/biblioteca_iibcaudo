@@ -41,12 +41,15 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('registrar-item', ['uses' => 'ItemController@createItem', 'as' => 'create-item']);
     Route::post('registrar-item', ['uses' => 'ItemController@storeItem', 'as' => 'create-item']);
 
-    Route::get('actualizar-item/{id}', ['uses' => 'ItemController@editSubarea', 'as' => 'edit-item']);
-    Route::get('eliminar-item/{id}', ['uses' => 'ItemController@deleteSubarea', 'as' => 'delete-item']);   
+    Route::get('actualizar-item/{id}', ['uses' => 'ItemController@editItem', 'as' => 'edit-item']);
+    Route::put('actualizar-item/{id}', ['uses' => 'ItemController@updateItem', 'as' => 'update-item']);
+    
+    Route::delete('eliminar-item/{id}', ['uses' => 'ItemController@deleteItem', 'as' => 'delete-item']);   
+
     // Combobox Areas/Subareas by Ajax Routes
     Route::get('listado-subareas-ajax/{area_id}', 'ItemController@getSubareasByAjax');
     // File's Get Routes
-    Route::get('item-file/{item_id}', 'ItemController@getFile');
+    Route::get('descargar-archivo/{item_id}', ['uses' => 'ItemController@getFile', 'as' => 'item-file']);
 });
 
 Auth::routes();
