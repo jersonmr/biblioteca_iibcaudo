@@ -136,7 +136,7 @@
                             {!! Form::hidden('user_id', Auth::user()->user_id) !!}
 
                             <div class="form-group" style="margin-top: 20px;">
-                                <input type="submit" value="Registrar item" class="btn btn-success">
+                                <input type="submit" value="Actualizar item" class="btn btn-success">
                             </div>
 
                             

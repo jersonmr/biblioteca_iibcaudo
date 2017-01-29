@@ -20,6 +20,15 @@ Route::get('/', ['uses' => 'HomeController@index', 'as' => 'home']);
 // Admin Routes
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('panel-administrador', ['uses' => 'AdminController@getDashboard', 'as' => 'dashboard']);
+
+    // User Routes
+    Route::get('listado-usuarios', ['uses' => 'UserController@getUsers', 'as' => 'users']);
+    Route::get('registrar-usuario', ['uses' => 'UserController@createUser', 'as' => 'create-user']);
+    Route::post('registrar-usuario', ['uses' => 'UserController@storeUser', 'as' => 'create-user']);
+    Route::get('editar-usuario/{id}', ['uses' => 'UserController@editUser', 'as' => 'edit-user']);
+    Route::put('editar-usuario/{id}', ['uses' => 'UserController@updateUser', 'as' => 'update-user']);
+    Route::get('eliminar-usuario/{id}', ['uses' => 'UserController@deleteUser', 'as' => 'delete-user']);
+
     // Area Routes
     Route::get('listado-areas', ['uses' => 'AreaController@getAreas', 'as' => 'areas']);
     Route::get('registrar-area', ['uses' => 'AreaController@createArea', 'as' => 'create-area']);

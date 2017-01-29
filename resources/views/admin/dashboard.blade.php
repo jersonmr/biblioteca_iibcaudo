@@ -10,7 +10,7 @@
                     <ul class="admin-menu">
 						<li class="text-center">
 							<i class="fa fa-users fa-4x"></i> <br>
-							<a href="#">Usuarios</a>
+							<a href="{{ route('users') }}">Usuarios</a>
 						</li>
 						<li class="text-center">
 							<i class="fa fa-folder fa-5x"></i> <br> 

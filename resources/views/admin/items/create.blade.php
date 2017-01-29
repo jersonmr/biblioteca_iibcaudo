@@ -9,7 +9,7 @@
                         Registro de item
                     </div>
                     <div class="panel-body">                        
-                        {!! Form::open(['route' => 'create-item', 'files' => true, 'class' => 'form', 'novalidate']) !!}
+                        {!! Form::open(['route' => 'create-item', 'files' => true, 'class' => 'form']) !!}
 
                         	<div class="row">                        	
                         		<div class="form-group{{ $errors->has('area_id') ? ' has-error' : '' }} col-xs-12 col-sm-6 col-md-6">
