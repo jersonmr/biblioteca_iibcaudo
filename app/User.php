@@ -2,8 +2,9 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Route;
 
 class User extends Authenticatable
 {
@@ -35,7 +36,13 @@ class User extends Authenticatable
     }
 
     public function setPasswordAttribute($value)
-    {
-        $this->attributes['password'] = bcrypt(substr($value, -4));
+    {        
+        $route_name = Route::currentRouteName();
+
+        if($route_name == 'create-user') {
+            $this->attributes['password'] = bcrypt(substr($value, -4));
+        } else {
+            $this->attributes['password'] = $value;
+        }
     }
 }
