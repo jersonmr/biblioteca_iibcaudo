@@ -26,7 +26,13 @@
                                         <td>{{ $user->user_id }}</td>
                                         <td>{{ $user->fullname }}</td>
                                         <td>{{ $user->email }}</td>
-                                        <td>{{ $user->role }}</td>
+                                        <td>
+                                            @if($user->role == 'investigator')
+                                                Investigador
+                                            @else
+                                                Editor
+                                            @endif
+                                        </td>
                                         <td>
                                             <a href="{{ route('edit-user', $user->user_id) }}">
                                                 <i class="fa fa-edit fa-2x"></i>
