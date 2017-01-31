@@ -16,10 +16,16 @@ class RedirectIfAuthenticated
      * @return mixed
      */
     public function handle($request, Closure $next, $guard = null)
-    {        
+    {                    
         if (Auth::guard($guard)->check()) {
-            //return redirect('/home');            
-            return route('dashboard');
+            //return redirect('/home');  
+            $user_role = currentUser()->role; 
+            
+            if ($user_role == 'admin') {
+                return redirect()->route('dashboard');
+            } elseif ($user_role == 'investigator') {                
+                return redirect()->route('inv-dashboard');
+            }
         }
 
         return $next($request);        

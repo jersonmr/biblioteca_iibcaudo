@@ -61,5 +61,10 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('descargar-archivo/{item_id}', ['uses' => 'ItemController@getFile', 'as' => 'item-file']);
 });
 
+// Investigator Routes
+Route::group(['prefix' => 'investigator', 'middleware' => 'auth'], function() {
+    Route::get('panel-investigador', ['as' => 'inv-dashboard', 'uses' => 'InvestigatorController@getDashboard']);
+});
+
 Auth::routes();
 
