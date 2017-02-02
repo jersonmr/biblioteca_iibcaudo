@@ -91,7 +91,7 @@
                                         '' => 'Seleccione una opción',
                                         'libros'      => 'Libro',
                                         'monografias' => 'Monografía',
-                                        'revistas'    => 'Revista',
+                                        'separatas'   => 'Separata',
                                         'tesis'       => 'Tesis'
                                     ], null, ['class' => 'form-control', 'required' => 'required']) !!}
                                     @if ($errors->has('collection'))

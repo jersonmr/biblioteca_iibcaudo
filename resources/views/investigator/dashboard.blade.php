@@ -19,7 +19,7 @@
 											'' => 'Seleccione',
 											'libros'      => 'Libro',
 	                                        'monografias' => 'Monografía',
-	                                        'revistas'    => 'Revista',
+	                                        'separatas'    => 'Separata',
 	                                        'tesis'       => 'Tesis'
 										], null, ['class' => 'form-control']) !!}
 									</div>
@@ -44,7 +44,7 @@
 						{!! Form::close() !!}						
 
 						{{-- Si existen registros se procede a mostrar la tabla con los resultados --}}
-						@if($items)
+						@if(count($items) > 0)
 						<div class="alert alert-info text-right">
 							<p>								
 								<strong>Se encontraron <span class="badge">{{ $items->total() }}</span> registro(s)</strong>

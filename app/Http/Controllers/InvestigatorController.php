@@ -13,4 +13,11 @@ class InvestigatorController extends Controller
 
     	return view('investigator.dashboard', compact('items'));
     }
+
+    public function itemDetail($item_id)
+    {
+    	$item = Item::findOrFail($item_id);
+
+    	return view('investigator.item-detail', compact('item'));
+    }
 }

@@ -89,10 +89,10 @@
                                 <div class="col-xs-12 col-sm-4 col-md-4 form-group{{ $errors->has('collection') ? ' has-error' : '' }}">
                                     {!! Form::label('collection', 'Colección') !!}
                                     {!! Form::select('collection', [
-                                        '' => 'Seleccione una opción',
+                                        ''            => 'Seleccione una opción',
                                         'libros'      => 'Libro',
                                         'monografias' => 'Monografía',
-                                        'revistas'    => 'Revista',
+                                        'separatas'   => 'Separata',
                                         'tesis'       => 'Tesis'
                                     ], null, ['class' => 'form-control', 'required' => 'required']) !!}
                                     @if ($errors->has('collection'))
