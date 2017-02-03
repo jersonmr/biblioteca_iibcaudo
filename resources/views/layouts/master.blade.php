@@ -60,10 +60,12 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{{ route('dashboard') }}"><i class="fa fa-cog"></i> Ir a mi panel</a></li>
-                                    <li><a href="#"><i class="fa fa-flask"></i> Sección de investigadores</a></li>
+                                    @if (currentUser()->role == "admin")
+                                    <li><a href="{{ route('dashboard') }}"><i class="fa fa-cog"></i> Panel Administrador</a></li>
+                                    @endif
+                                    <li><a href="{{ route('inv-dashboard') }}"><i class="fa fa-flask"></i> Sección de investigadores</a></li>
                                     <li class="divider"></li>
-                                    <li><a href="#"><i class="fa fa-lock"></i> Cambiar contraseña</a></li>
+                                    <li><a href="{{ route('change-key') }}"><i class="fa fa-lock"></i> Cambiar contraseña</a></li>
                                     <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();

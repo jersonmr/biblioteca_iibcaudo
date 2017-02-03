@@ -25,6 +25,8 @@ class RedirectIfAuthenticated
                 return redirect()->route('dashboard');
             } elseif ($user_role == 'investigator') {                
                 return redirect()->route('inv-dashboard');
+            } else {
+                return redirect()->route('items');
             }
         }
 

@@ -67,5 +67,9 @@ Route::group(['prefix' => 'investigator', 'middleware' => 'auth'], function() {
     Route::get('detalle-articulo/{id}', ['as' => 'item-detail', 'uses' => 'InvestigatorController@itemDetail']);    
 });
 
+Route::group(['middleware' => 'auth']) {
+    Route::get('cambiar-contraseña', ['as' => 'change-key', 'UserController@changeKey'])->middleware('auth');
+}
+
 Auth::routes();
 

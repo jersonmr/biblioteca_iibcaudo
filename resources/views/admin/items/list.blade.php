@@ -15,7 +15,7 @@
                                     '' => 'Seleccione',
                                     'libros'      => 'Libro',
                                     'monografias' => 'Monografía',
-                                    'separatas'    => 'Separata',
+                                    'separatas'   => 'Separata',
                                     'tesis'       => 'Tesis'
                                 ], null, ['class' => 'form-control']) !!}
                             </div>

@@ -17,7 +17,7 @@ class Item extends Model
     {
         return Item::title($title)
             ->collection($collection)
-            ->orderBy('item_id', 'DESC')
+            ->orderBy('item_id', 'ASC')
             ->paginate();
     }
 
