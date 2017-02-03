@@ -48,6 +48,9 @@ class LoginController extends Controller
             case 'admin':
                 return route('dashboard');
                 break;
+            case 'editor':
+                return route('items');
+                break;
             case 'investigator':
                 return route('inv-dashboard');
                 break;
