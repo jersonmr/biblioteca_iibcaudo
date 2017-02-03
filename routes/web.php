@@ -64,7 +64,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 // Investigator Routes
 Route::group(['prefix' => 'investigator', 'middleware' => 'auth'], function() {
     Route::get('panel-investigador', ['as' => 'inv-dashboard', 'uses' => 'InvestigatorController@getDashboard']);
-    Route::get('detalle-articulo/{id}', ['as' => 'item-detail', 'uses' => 'InvestigatorController@itemDetail']);
+    Route::get('detalle-articulo/{id}', ['as' => 'item-detail', 'uses' => 'InvestigatorController@itemDetail']);    
 });
 
 Auth::routes();

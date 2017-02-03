@@ -4,6 +4,41 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
+
+                {{-- Formulario de búsqueda --}}
+                {!! Form::model(Request::all(), ['route' => 'items', 'method' => 'GET']) !!}
+                    <div class="row">
+                        
+                        <div class="col-xs-12 col-sm-3 col-md-3">
+                            <div class="form-group">
+                                {!! Form::select('collection', [
+                                    '' => 'Seleccione',
+                                    'libros'      => 'Libro',
+                                    'monografias' => 'Monografía',
+                                    'separatas'    => 'Separata',
+                                    'tesis'       => 'Tesis'
+                                ], null, ['class' => 'form-control']) !!}
+                            </div>
+                        </div>
+                        
+                        <div class="col-xs-12 col-sm-9 col-md-9">
+                            
+                            <div class="input-group">                               
+                                
+                                {!! Form::text('title', null, ['class' => 'form-control', 'placeholder' => 'Por favor ingrese los términos de su búsqueda']) !!}
+                                
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="submit">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>                                     
+                            </div>
+
+                        </div>
+
+                    </div>
+                {!! Form::close() !!}   
+
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         Listado de items
@@ -14,7 +49,8 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Título/Autor</th>                                
+                                <th>Título/Autor</th>    
+                                <th>Colección</th>                           
                                 <th>Acciones</th>                                
                             </tr>
                             </thead>
@@ -22,11 +58,14 @@
                             @foreach($items as $item)
                                 <tr data-id = "{{ $item->item_id }}">
                                     <td>{{ $item->item_id }}</td>
-                                    <td width="85%">
+                                    <td width="80%">
                                         {{ $item->title }} <br>
                                         <small><strong>{{ upper($item->author) }}</strong></small>
-                                    </td>                                    
-                                    <td width="15%">
+                                    </td>        
+                                    <td width="8%">
+                                        {{ $item->collection }}
+                                    </td>                            
+                                    <td width="12%">
                                         <a href="{{ route('edit-item', $item->item_id) }}">
                                             <i class="fa fa-edit fa-2x"></i>
                                         </a>
@@ -43,7 +82,7 @@
                             @endforeach
                             </tbody>
                         </table>
-                        {{ $items->links() }}
+                        {{ $items->appends(Request::only(['title', 'collection']))->links() }}
                     </div>
                 </div>
             </div>

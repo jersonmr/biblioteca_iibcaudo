@@ -10,26 +10,26 @@
 					<div class="panel-body">
 						<div class="row">														
 							<div class="col-xs-12 col-sm-9 col-md-9">
-								<h3>Autor</h3>
+								<h4>Autor</h4>
 								<span>{{ $item->author }}</span>
 							</div>
 							<div class="col-xs-12 col-sm-3 col-md-3">
-								<h3>Año de publicación</h3>
+								<h4>Año de publicación</h4>
 								<span>{{ $item->pub_year }}</span>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-xs-12">
-								<h3>Resumen</h3>
+								<h4>Resumen</h4>
 								<span>{{ $item->abstract }}</span>
 							</div>
 
 							<div class="col-xs-12 col-sm-8 col-md-8">
-								<h3>Palabras clave</h3>
+								<h4>Palabras clave</h4>
 								<span>{{ $item->keywords }}</span>
 							</div>
-							<div class="col-xs-12 col-sm-2 col-md-2">
-								<h3>Editorial</h3>
+							<div class="col-xs-6 col-sm-2 col-md-2">
+								<h4>Editorial</h4>
 								<span>									
 								@if($item->editorial != "")
 									{{ $item->editorial }}
@@ -38,8 +38,8 @@
 								@endif
 								</span>
 							</div>
-							<div class="col-xs-12 col-sm-2 col-md-2">
-								<h3>Colección</h3>
+							<div class="col-xs-6 col-sm-2 col-md-2">
+								<h4>Colección</h4>
 								<span>{{ $item->collection }}</span>
 							</div>
 
@@ -47,8 +47,8 @@
 
 						<div class="row">
 							
-							<div class="col-xs-12 col-sm-6 col-md-3">
-								<h3>ISBN</h3>
+							<div class="col-xs-6 col-sm-6 col-md-3">
+								<h4>ISBN</h4>
 								<span>									
 								@if($item->isbn != "")
 									{{ $item->isbn }}
@@ -57,8 +57,8 @@
 								@endif
 								</span>
 							</div>
-							<div class="col-xs-12 col-sm-6 col-md-3">
-								<h3>ISSN</h3>
+							<div class="col-xs-6 col-sm-6 col-md-3">
+								<h4>ISSN</h4>
 								<span>									
 								@if($item->issn != "")
 									{{ $item->issn }}
@@ -67,8 +67,8 @@
 								@endif
 								</span>
 							</div>
-							<div class="col-xs-12 col-sm-6 col-md-3">
-								<h3>Páginas</h3>
+							<div class="col-xs-6 col-sm-6 col-md-3">
+								<h4>Páginas</h4>
 								<span>									
 								@if($item->pages != "")
 									{{ $item->pages }}
@@ -77,8 +77,8 @@
 								@endif
 								</span>
 							</div>
-							<div class="col-xs-12 col-sm-6 col-md-3">
-								<h3>Volumen</h3>
+							<div class="col-xs-6 col-sm-6 col-md-3">
+								<h4>Volumen</h4>
 								<span>									
 								@if($item->volume != "")
 									{{ $item->volume }}
@@ -92,8 +92,8 @@
 
 						<div class="row">
 							<div class="col-xs-12 text-right">
-								<a href="#" class="btn btn-primary">
-									{{ getReaFileName($item->filename) }}
+								<a href="{{ route('item-file',  $item->item_id) }}" target="_blank" class="btn btn-primary">
+									<i class="fa fa-download"></i> Descargar
 								</a>
 							</div>
 						</div>

@@ -11,8 +11,8 @@ function currentUser()
 }
 
 // Devuelve solo el nombre del archivo pdf guardado
-function getReaFileName($str)
+function getReaFileName($str, $collection)
 {
-    $filename = explode("_", $str);
+    $filename = explode("files/{$collection}/", $str);
     return $filename[1];
 }

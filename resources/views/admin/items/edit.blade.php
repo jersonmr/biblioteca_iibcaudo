@@ -104,7 +104,7 @@
                             
                             {{-- ARCHIVO PDF --}}                            
                             <div class="form-group{{ $errors->has('filename') ? ' has-error' : '' }}">
-                                {!! Form::label('filename', 'Archivo PDF') !!} (<a href="{{ route('item-file', $item->item_id) }}" target="_blank">{{ getReaFileName($item->filename) }}</a>)
+                                {!! Form::label('filename', 'Archivo PDF') !!} (<a href="{{ route('item-file', $item->item_id) }}" target="_blank">{{ getReaFileName($item->filename, $item->collection) }}</a>)
                                 {!! Form::file('filename', ['class' => 'form-control filestyle', 'data-buttonText' => 'Seleccione archivo', 'data-iconName' => 'fa fa-folder']) !!}
                                 @if ($errors->has('filename'))
                                     <span class="help-block">

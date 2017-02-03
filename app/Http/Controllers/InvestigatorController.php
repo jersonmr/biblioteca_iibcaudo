@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Item;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class InvestigatorController extends Controller
 {
@@ -20,4 +21,5 @@ class InvestigatorController extends Controller
 
     	return view('investigator.item-detail', compact('item'));
     }
+
 }

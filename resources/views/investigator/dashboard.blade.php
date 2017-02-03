@@ -67,7 +67,7 @@
                                         <small><strong>{{ upper($item->author) }}</strong></small>
                                     </td>                                    
                                     <td width="5%" class="text-center">
-                         				<a href="{{ route('item-detail', $item->item_id) }}"><i class="fa fa-download fa-2x"></i></a>
+                         				<a href="{{ route('item-detail', $item->item_id) }}"><i class="fa fa-eye fa-2x"></i></a>
                                     </td>               
                                 </tr>
                             @endforeach

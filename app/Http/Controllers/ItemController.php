@@ -12,9 +12,9 @@ use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 
 class ItemController extends Controller
 {
-    public function getItems()
+    public function getItems(Request $request)
     {
-    	$items = Item::orderBy('item_id', 'DESC')->paginate(30);
+    	$items = Item::filterAndPaginate($request->get('title'), $request->get('collection'));
 
         return view('admin.items.list', compact('items'));
     }
@@ -62,7 +62,7 @@ class ItemController extends Controller
 
         $data = $request->all();                     
 
-        // Guardando el archivo en la carpeta correspondiente (Si trae uno)
+        // Guardando el archivo en la carpeta correspondiente (Si trae uno)        
         if($request->filename) {
             //$item->filename = contiene el archivo previamente guardado
             $data['filename'] = $this->saveUploadedFile($request, $item->filename); 
@@ -108,8 +108,8 @@ class ItemController extends Controller
                 $file = $request->file('filename');
                 // Limpiando el nombre de archivo, eliminando caracteres extraños
                 $filename = $this->sanitizeFilename($file->getClientOriginalName());                 
-                // Guardando el archivo
-                $filename = $file->storeAs('files/'.$collection, $filename);    // Carpeta Storage          
+                // Guardando el Archivo (Ex.: 'files/libros/nombre_archivo.pdf')
+                $filename = $file->store('files/'.$collection);    // Carpeta Storage                 
 
                 return $filename;      
             }
