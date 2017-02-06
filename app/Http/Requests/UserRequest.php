@@ -33,7 +33,17 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
-        $route_name = FacadeRoute::currentRouteName();  
+        $route_name = FacadeRoute::currentRouteName(); 
+
+        // Cambio de clave
+        if ($route_name == 'update-key') 
+        {            
+            return [
+                'email'       => 'required|email',
+                'oldpassword' => 'required',
+                'newpassword' => 'required'
+            ];
+        }
         
         // Si el llamado viene de la actualizacion de item
         if($route_name == 'update-user')

@@ -9,7 +9,7 @@
                         Registro de usuario
                     </div>
                     <div class="panel-body">                        
-                        {!! Form::open(['route' => 'create-user', 'novalidate']) !!}
+                        {!! Form::open(['route' => 'create-user']) !!}
                             
                             <div class="row">
 

@@ -62,6 +62,12 @@ class UserController extends Controller
 
     public function changeKey()
     {
-        return 'hola';
+        return view('admin.users.change-key');
+    }
+
+    public function updateKey(UserRequest $request)
+    {
+        $data = $request->all();
+        dd($data);
     }
 }

@@ -75,7 +75,9 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('detalle-articulo/{id}', ['as' => 'item-detail', 'uses' => 'InvestigatorController@itemDetail']);    
     });
     
-    Route::get('cambiar-contraseña', ['as' => 'change-key', 'UserController@changeKey'])->middleware('auth');
+    // Change key Routes
+    Route::get('cambiar-contraseña', ['as' => 'change-key', 'uses' => 'UserController@changeKey']);
+    Route::post('cambiar-contraseña', ['as' => 'update-key', 'uses' => 'UserController@updateKey']);
     
 });
 
