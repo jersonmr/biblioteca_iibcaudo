@@ -39,9 +39,9 @@ class UserRequest extends FormRequest
         if ($route_name == 'update-key') 
         {            
             return [
-                'email'       => 'required|email',
-                'oldpassword' => 'required',
-                'newpassword' => 'required'
+                'email' => 'required|exists:users,email',                
+                'oldpassword' => 'required|min:4',
+                'newpassword' => 'required|min:4'
             ];
         }
         

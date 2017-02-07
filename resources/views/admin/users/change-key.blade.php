@@ -10,7 +10,11 @@
 						<div class="panel panel-primary">
 							<div class="panel-heading">Cambie su contraseña</div>
 							<div class="panel-body">
-								{!! Form::open(['novalidate']) !!}
+								@if(Session::has('status'))
+								div.alert.alert-
+									{{ Session::get('status') }}
+								@endif
+								{!! Form::open(['route' => 'update-key']) !!}
 									<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 										{!! Form::label('email', 'Correo electrónico') !!}
 										{!! Form::email('email', null, ['class' => 'form-control', 'required' => 'required']) !!}

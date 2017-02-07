@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UserRequest;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -66,8 +68,16 @@ class UserController extends Controller
     }
 
     public function updateKey(UserRequest $request)
-    {
-        $data = $request->all();
-        dd($data);
+    {     
+        if (Hash::check($request->oldpassword, Auth::user()->password))
+        {
+            $user = new User;
+            $user->where('email', Auth::user()->email)
+                ->update(['password' => bcrypt($request->newpassword)]);
+            return redirect()->back()->with('status', 'Contraseña cambiada con éxito'); 
+        } else {
+            return redirect()->back()->withInput('status', 'Las credenciales son incorrectas');
+        }
+
     }
 }
