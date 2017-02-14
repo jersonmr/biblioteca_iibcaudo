@@ -8,11 +8,12 @@
 				<div class="row">
 					<div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset3">
 						<div class="panel panel-primary">
-							<div class="panel-heading">Cambie su contraseña</div>
+							<div class="panel-heading"><i class="fa fa-lock"></i> Cambie su contraseña</div>
 							<div class="panel-body">
-								@if(Session::has('status'))
-								div.alert.alert-
-									{{ Session::get('status') }}
+								@if(session('status'))
+								<div class="alert alert-{{ session('type') }}">
+									{{ session('status') }}
+								</div>
 								@endif
 								{!! Form::open(['route' => 'update-key']) !!}
 									<div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">

@@ -74,9 +74,9 @@ class UserController extends Controller
             $user = new User;
             $user->where('email', Auth::user()->email)
                 ->update(['password' => bcrypt($request->newpassword)]);
-            return redirect()->back()->with('status', 'Contraseña cambiada con éxito'); 
+            return redirect()->back()->with(['type' => 'success', 'status' => 'Contraseña cambiada con éxito']); 
         } else {
-            return redirect()->back()->withInput('status', 'Las credenciales son incorrectas');
+            return redirect()->back()->with(['type' => 'danger', 'status' => 'Las credenciales son incorrectas']);
         }
 
     }
