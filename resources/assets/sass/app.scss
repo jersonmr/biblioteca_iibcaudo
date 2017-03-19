@@ -7,3 +7,44 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+// Background-hover drowpdown menu
+$hover-background-dropdown: lighten(#0508FF, 10%);
+
+.header {
+    //background-color: #0057FF;
+    background: rgba(0,0,255,1);
+    background: -moz-linear-gradient(top, rgba(0,0,255,1) 0%, rgba(0,55,255,1) 23%, rgba(0,77,255,1) 51%, rgba(0,132,255,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,255,1)), color-stop(23%, rgba(0,55,255,1)), color-stop(51%, rgba(0,77,255,1)), color-stop(100%, rgba(0,132,255,1)));
+    background: -webkit-linear-gradient(top, rgba(0,0,255,1) 0%, rgba(0,55,255,1) 23%, rgba(0,77,255,1) 51%, rgba(0,132,255,1) 100%);
+    background: -o-linear-gradient(top, rgba(0,0,255,1) 0%, rgba(0,55,255,1) 23%, rgba(0,77,255,1) 51%, rgba(0,132,255,1) 100%);
+    background: -ms-linear-gradient(top, rgba(0,0,255,1) 0%, rgba(0,55,255,1) 23%, rgba(0,77,255,1) 51%, rgba(0,132,255,1) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,255,1) 0%, rgba(0,55,255,1) 23%, rgba(0,77,255,1) 51%, rgba(0,132,255,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0000ff', endColorstr='#0084ff', GradientType=0 );
+    height: 200px;   
+    margin-bottom: 40px; 
+    .header-background {
+        background: url(../img/banner_biblioteca_iibcaudo.png) no-repeat;
+        height: 150px;
+    }
+    .navbar-default {
+        .navbar-nav a, a {
+            color: white;
+            &:hover {
+                color: darken(white, 20%);
+            }
+            .open > a {
+                color: white;
+            }
+            &:focus {
+                color: darken(white, 20%);
+            }
+        }
+        .dropdown-menu {
+            background-color: lighten(#0508FF, 10%);
+            a:hover {
+                background-color: darken($hover-background-dropdown, 20%);
+            }
+        }
+    }
+}
